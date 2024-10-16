@@ -11,8 +11,7 @@ jobs:
     steps:
       - name: Enable debugging
         run: |
-          echo "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}" |
-          echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
+          echo "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}"
       - uses: actions/checkout@v3
       - name: Upload folder
         uses: Jodebu/upload-to-drive@v1
