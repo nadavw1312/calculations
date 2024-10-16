@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Enable debugging
         run: |
+          echo "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}" |
           echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
       - uses: actions/checkout@v3
       - name: Upload folder
@@ -19,4 +20,4 @@ jobs:
           credentials: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}
           folder: calcs 
           target: 1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc  # Or the actual folder name
-          
+
