@@ -9,11 +9,24 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
+      - name: Disable secret masking (for debugging)
+        run: echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
+      - name: Print secret
+        run: |
+          echo "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}"
       - uses: actions/checkout@v3
-      - name: Upload calcs folder
-        uses: Jodebu/upload-to-drive@v1
+      - name: Upload atr.py
+        uses: willo32/google-drive-upload-action@v1
         with:
-          credentials: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}
-          folder: 1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc # The source folder in your repository
-          target: calcs   # The destination folder name in Google Drive
-
+          credentials: "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}"
+          target: calcs/atr.py  
+          name: atr.py  # Optional: Set the filename in Google Drive
+          parent_folder_id: '1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc' 
+      - name: Upload macd.py
+        uses: willo32/google-drive-upload-action@v1
+        with:
+          credentials: "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}"
+          target: calcs/macd.py
+          name: macd.py  # Optional: Set the filename in Google Drive
+          parent_folder_id: '1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc' 
+      # Add more steps for other files in the "calcs" folder...
