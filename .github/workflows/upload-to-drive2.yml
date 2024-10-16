@@ -1,0 +1,19 @@
+name: Upload calcs folder
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Upload calcs folder
+        uses: Jodebu/upload-to-drive@v1
+        with:
+          credentials: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}
+          folder: calcs
+          target: calcs
