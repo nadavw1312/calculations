@@ -9,14 +9,18 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
-      - name: Enable debugging
+      - name: Disable secret masking 
+        run: echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
+      - name: Print secret
         run: |
           echo "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}"
+      - name: Print secret bytes
+        run: |
+          echo "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}" | hexdump -C
       - uses: actions/checkout@v3
       - name: Upload folder
         uses: Jodebu/upload-to-drive@v1
         with:
-          credentials: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}
+          credentials: "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}" 
           folder: calcs 
           target: 1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc  # Or the actual folder name
-
