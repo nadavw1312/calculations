@@ -15,10 +15,13 @@ jobs:
         run: |
           echo "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}"
       - uses: actions/checkout@v3
-      - name: Upload folder contents
+      - name: Upload folder contents (example)
         uses: willo32/google-drive-upload-action@v1
         with:
           credentials: "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}"
-          source: calcs/  # Path to the source folder
-          destination: 'uploaded_calcs' # Destination folder name in Google Drive
-          parent_folder_id: '1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc' # Your Drive folder ID
+          target: '1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc/uploaded_calcs/atr.py' # Example target path
+      - name: Upload folder contents (another example)
+        uses: willo32/google-drive-upload-action@v1
+        with:
+          credentials: "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}"
+          target: '1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc/uploaded_calcs/macd.py' # Example target path
