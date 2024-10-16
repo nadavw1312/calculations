@@ -1,31 +1,19 @@
-# .github/workflows/main.yml
-name: Main
-on: [push]
+name: Upload calcs folder
+
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  my_job:
+  upload:
     runs-on: ubuntu-latest
-
     steps:
+      - uses: actions/checkout@v2
 
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Archive files
-        run: |
-          sudo apt-get update
-          sudo apt-get install zip
-          zip -r archive.zip *
-
-      - name: Upload to gdrive
-        uses: adityak74/google-drive-upload-git-action@main
+      - name: Upload calcs folder
+        uses: Jodebu/upload-to-drive@v1
         with:
           credentials: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}
-          filename: "archive.zip"
-          folderId: "1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc"
-          name: "documentation.zip" # optional string
-          overwrite: "true" # optional boolean
-
-
-
-          
+          target: calcs
+          folder: 1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc
