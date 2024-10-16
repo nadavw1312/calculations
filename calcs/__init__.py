@@ -1,3 +1,3 @@
-from .atr import ATR
-from .macd import MACD
-from .rsi import RSI
+from .atr import Atr
+from .macd import Macd
+from .rsi import Rsi
