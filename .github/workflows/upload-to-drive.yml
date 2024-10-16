@@ -16,6 +16,18 @@ jobs:
       - name: Upload folder
         uses: Jodebu/upload-to-drive@v1
         with:
-          credentials: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}
-          folder: calcs 
-          target: 1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc  # Or the actual folder name
+          credentials: '{
+            "type": "service_account",
+            "project_id": "back-testing-calcs",
+            "private_key_id": "267f3ccc76ac90bc620960003512deb95fb0ea74",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDIbuOHjzkSnbQW\n0gd1V04u+kY1sizVNXtR5hSkR9vNv/EvQ/cl8B0LaoIFy/HgyTyddvJgpnAATsCl\nmeQhJHGLW4zXYMTiWUjFI3kepdoYyQcCQVECfsa1bOo1O21iuYJuBrJu3IEhl6ph\nWK2+AnnLQECRO5VafZCGK1vmU9DRJEtbOeRPboEyJHTe1pqFOSti1hA15P0JtI0K\nHjLJpLXILDkHPx7BrCvQSnvBroLAYtd8IK/KMH1CD9o5sbvnNLShT6VRbcLZrjN+\nWiYNIg32L2M/AFoaZtJ3RnoFw7JFUZ8MYCbQgC5n+HJQwh5Q7PkV8714dtvKKQuv\n7FipdjGnAgMBAAECggEATNz9g3RgyitRLzkvJAgtkuVmfFwORltCpgcqXk+yUsZr\naxlQ06svsDuRjkCGSxJRHP/K9laNeAi7ZyZLboxHwM4Ehmn1Ruo/dl5iqeanaz7Y\nYbyDoQXWFSgl7vERwzzp8GDAF7SXDrdXXwp/YnEXnOLQgAGOBoxFmrZRAVSeLT1j\n4igd4aceHwWjF+AnyY3DfcLtFj9lLdHYXa1UiS4sP94/d1S0x1oi1slS/JzfsXLO\nNevxd+rK+KkDt/V0N9OQt7Tqb6eViNIi8F1y9HSGCVBShVROYFErYnas10FdSGyZ\neQX9xlEVWtb2xxlhvakuMP/0hlwBnYUQ8AWJX0bwxQKBgQD5RxEHCtVC2cIey3AU\n8a5qykr8CilBqzVKO1KV+QEiHgyvUc6+y5192DrOLQLFHG7CHRrK+dy71gWwP2Cs\npfg9dZfx8BP7YqMBIcZ+tA0hmANiVxbB/lQ2wYwDecilhvNrogbjeZRLVc/Yg0PO\nklKn2r2uqg48ONRuGksxy/VRSwKBgQDN1p2gT+ZmWXIotlVbT/uVFLoWuxi4hRth\nT0EYi13qVkBnoCNklxGLg/1tUVz0NW9qA7/qwO72A01aJx+HPkOa/09vadNEDRZK\nr5GG0zO7IqqoesVms34O9pjuxeVwlDL2Vr2wY0s2CB311nnQ5c3yVigiID4od6uM\nbN2GgO4DlQKBgQCdp/W7930Dp8efRFlh1azTO5gLKb4IG2k7xqMn2PF/i3PIWjwg\n7ZRw6BXhGhSbZ60hNdkhMMALSIQWgS76YonLDRmJWaa5ohun9p2cuvFnIsZZJu1s\nyham/ug3tolRLzW7CCHFMrq4ntAyhmqXNnHyWWUIF+Oi8OphrF2MZAuGWwKBgEOk\nsL47I6sk39gzO0+7tCCk5BaOO6x/yaSr5+eJ/T4CRD4JqTfoUVK4+HKRV2vFl6yO\nOOaLqrvcD/J9guXt90ebeV5St6PYbSf0FG3rQEfSN6UQW4jJmbaPIWjuTd02Rp0f\nmky6BMBn4Himl/enXYuy9pNoZyTjVtPZ/t6xxgYVAoGAEcgOYk1dYCdddNMgJ33G\nCzyMb+czbX+ozzzGO1F+sNsPHocH5Db/B9gOcxepG9+uDyYy8olj6OSxuyEZbpi3\nSh4zLBQetTKXTWrnTgjlwi0mogJbpkDxAf1Gk/77HCwnfi2XM3TbP/Ktfi0sKRkh\nTQ5cMlW9v1j8NKh9hTMQALU=\n-----END PRIVATE KEY-----\n",
+            "client_email": "github-drive-uploader@back-testing-calcs.iam.gserviceaccount.com",
+            "client_id": "110872485703590799098",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/github-drive-uploader%40back-testing-calcs.iam.gserviceaccount.com",
+            "universe_domain": "googleapis.com"
+          }' 
+          folder: calcs
+          target: 1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc
