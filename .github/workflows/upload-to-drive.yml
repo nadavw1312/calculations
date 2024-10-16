@@ -9,14 +9,10 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
-      - name: Disable secret masking (for debugging)
-        run: echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
-      - name: Print secret
-        run: |
-          echo "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}"
       - uses: actions/checkout@v3
-      - name: Upload folder contents (example)
-        uses: willo32/google-drive-upload-action@v1
+      - name: Upload calcs folder
+        uses: Jodebu/upload-to-drive@v1
         with:
-          credentials: "${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}"
-          target: '1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc/calcs' 
+          credentials: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}
+          folder: calcs  # The source folder in your repository
+          target: calcs   # The destination folder name in Google Drive
