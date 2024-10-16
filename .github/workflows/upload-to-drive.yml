@@ -9,11 +9,13 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
+      - name: Enable debugging
+        run: |
+          echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
       - uses: actions/checkout@v3
       - name: Upload folder
         uses: Jodebu/upload-to-drive@v1
         with:
           credentials: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}
           folder: calcs 
-          target: calcs  # Or the actual folder name
-          
+          target: 1AE0EvqMRu7_45NQhOC3VbkpS2q-2o3Jc  # Or the actual folder name
